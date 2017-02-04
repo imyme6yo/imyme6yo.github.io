@@ -1,25 +1,28 @@
 <script>
-var $ = go.GraphObject.make;
-var organizationChart =
-  $(go.Diagram, "organizationChart",
-    {
-      initialContentAlignment: go.Spot.Center, // center Diagram contents
-      "undoManager.isEnabled": true // enable Ctrl-Z to undo and Ctrl-Y to redo
-    });
+function init() {
+    var $ = go.GraphObject.make;
+    var organizationChart =
+    $(go.Diagram, "organizationChart",
+        {
+        initialContentAlignment: go.Spot.Center, // center Diagram contents
+        "undoManager.isEnabled": true // enable Ctrl-Z to undo and Ctrl-Y to redo
+        });
 
-var company = $(go.TreeModel);
-// in the model data, each node is represented by a JavaScript object:
-company.nodeDataArray = [
-    {"key":"1", "name":"CEO & CTO"},
-    {"key":"2", "name":"MN Foundation", "parent":"1"},
-    {"key":"5", "name":"EDU", "parent":"2"},
-    {"key":"3", "name":"CFO", "parent":"1"},
-    {"key":"4", "name":"", "parent":"1"},
-    {"key":"6", "name":"DEV", "parent":"4"},
-    {"key":"7", "name":"OPS", "parent":"4"},
-    {"key":"8", "name":"Sales/Marketing", "parent":"4"},
-];
-organizationChart.model = company;
+    var company = $(go.TreeModel);
+    // in the model data, each node is represented by a JavaScript object:
+    company.nodeDataArray = [
+        {"key":"1", "name":"CEO & CTO"},
+        {"key":"2", "name":"MN Foundation", "parent":"1"},
+        {"key":"5", "name":"EDU", "parent":"2"},
+        {"key":"3", "name":"CFO", "parent":"1"},
+        {"key":"4", "name":"", "parent":"1"},
+        {"key":"6", "name":"DEV", "parent":"4"},
+        {"key":"7", "name":"OPS", "parent":"4"},
+        {"key":"8", "name":"Sales/Marketing", "parent":"4"},
+    ];
+    organizationChart.model = company;
+}
+
 </script>
 <div id="organizationChart" class="container">
 
